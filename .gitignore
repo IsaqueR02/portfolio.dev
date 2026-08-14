@@ -1,2 +1,12 @@
 bin/
 obj/
+out/
+*.suo
+*.user
+.vscode/*
+.idea/
+appsettings.Development.json
+*.env
+.DS_Store
+thumbs.db
+*~
