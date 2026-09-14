@@ -8,8 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="anime.Blazor" Version="0.9.6" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.10" PrivateAssets="all" />
+    <PackageReference Include="MudBlazor" Version="9.10.0" />
   </ItemGroup>
 
 </Project>
