@@ -10,7 +10,13 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(import.meta.dirname, "./src"),
+      "@components": path.resolve(import.meta.dirname, "./src/components"),
+      "@lib": path.resolve(import.meta.dirname, "./src/lib"),
+      "@assets": path.resolve(import.meta.dirname, "./src/assets"),
+      "@pages": path.resolve(import.meta.dirname, "./src/pages"),
+      "@services": path.resolve(import.meta.dirname, "./src/services"),
+      "@store": path.resolve(import.meta.dirname, "./src/store"),
     },
   },
 })
