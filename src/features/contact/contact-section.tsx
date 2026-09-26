@@ -44,7 +44,7 @@ export function ContactSection() {
                 <div>
                   <div className="text-xs text-muted-foreground">E-mail Profissional</div>
                   <a
-                    href="mailto:isaque.dev@outlook.com"
+                    href="mailto:isaque.r.zulato@outlook.com"
                     className="font-medium text-foreground hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
                   >
                     isaque.dev@outlook.com
