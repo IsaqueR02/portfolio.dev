@@ -33,14 +33,14 @@ export function Navbar() {
         {/* Brand / Logo */}
         <a
           href="#hero"
-          className="group flex items-center gap-2.5 font-mono text-sm tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded-md p-1"
+          className="group flex items-center gap-2.5 font-mono text-sm tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md p-1"
         >
-          <div className="flex size-8 items-center justify-center rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-500 group-hover:border-cyan-400 group-hover:shadow-[0_0_12px_rgba(6,182,212,0.35)] transition-all">
-            <Code2 className="size-4 text-cyan-500 dark:text-cyan-400" />
+          <div className="flex size-8 items-center justify-center rounded-lg bg-cyan-accent-subtle border border-cyan-accent/30 text-cyan-accent group-hover:border-cyan-accent group-hover:shadow-[0_0_12px_var(--brand-glow-shadow)] transition-all">
+            <Code2 className="size-4 text-cyan-accent" />
           </div>
           <div className="flex flex-col">
             <span className="font-bold text-foreground flex items-center gap-1.5">
-              ISAQUE<span className="text-cyan-500 dark:text-cyan-400">.DEV</span>
+              ISAQUE<span className="text-cyan-accent">.DEV</span>
             </span>
           </div>
         </a>
@@ -51,7 +51,7 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="px-3.5 py-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+              className="px-3.5 py-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               {link.name}
             </a>
@@ -89,7 +89,7 @@ export function Navbar() {
               <SheetContent side="right" className="w-[280px] sm:w-[350px]">
                 <SheetHeader className="text-left pb-4 border-b border-border/60">
                   <SheetTitle className="font-mono text-base flex items-center gap-2">
-                    <Code2 className="size-4 text-cyan-500" />
+                    <Code2 className="size-4 text-cyan-accent" />
                     <span>Navegação</span>
                   </SheetTitle>
                 </SheetHeader>
@@ -100,7 +100,7 @@ export function Navbar() {
                       <button
                         key={link.name}
                         onClick={() => handleNavClick(link.href)}
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-muted hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors text-left"
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-muted hover:text-[var(--cyan-accent)] transition-colors text-left"
                       >
                         <Icon className="size-4 text-muted-foreground" />
                         <span>{link.name}</span>

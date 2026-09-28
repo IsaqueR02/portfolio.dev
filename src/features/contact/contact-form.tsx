@@ -128,11 +128,15 @@ export function ContactForm() {
         >
           {status === "sending" ? (
             <span className="flex items-center gap-2">
-              <span className="size-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
+              <span
+                className="size-4 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin"
+                role="status"
+                aria-label="Enviando mensagem"
+              />
               Enviando...
             </span>
           ) : status === "sent" ? (
-            <span className="flex items-center gap-2 text-slate-950 font-bold">
+            <span className="flex items-center gap-2 text-primary-foreground font-bold">
               <CheckCircle2 className="size-4" />
               Mensagem Enviada com Sucesso!
             </span>

@@ -34,7 +34,7 @@ export function HeroSection() {
     >
       {/* Subtle background ambient radial gradients */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
-        <div className="h-[350px] w-[550px] rounded-full bg-cyan-500/10 blur-[120px] dark:bg-cyan-500/15" />
+        <div className="h-[350px] w-[550px] rounded-full bg-[var(--cyan-glow)] blur-[120px]" />
         <div className="h-[250px] w-[350px] rounded-full bg-blue-600/10 blur-[100px] dark:bg-blue-600/15" />
       </div>
 
@@ -44,7 +44,7 @@ export function HeroSection() {
 
         {/* Headline */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground max-w-3xl leading-[1.15] mb-5">
-          Desenvolvedor <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-sky-400 to-blue-600">.NET / C#</span> | Software Engineer
+          Desenvolvedor <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--cyan-accent)] via-sky-400 to-primary forced-colors:text-foreground">.NET / C#</span> | Software Engineer
         </h1>
 
         {/* Subheadline */}
@@ -86,7 +86,7 @@ export function HeroSection() {
             className="w-full sm:w-auto"
             onClick={() => scrollTo("#adapty-card")}
           >
-            <Play className="size-4 text-cyan-500 dark:text-cyan-400" />
+            <Play className="size-4 text-cyan-accent" />
             <span>Demonstração</span>
           </Button>
 
@@ -111,9 +111,14 @@ export function HeroSection() {
               {techStack.map((tech) => (
                 <Tooltip key={tech.name}>
                   <TooltipTrigger asChild>
-                    <div className="cursor-help">
-                      <Badge variant={tech.variant}>{tech.name}</Badge>
-                    </div>
+                    <Badge
+                      variant={tech.variant}
+                      tabIndex={0}
+                      role="button"
+                      className="cursor-help"
+                    >
+                      {tech.name}
+                    </Badge>
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>{tech.desc}</p>
@@ -127,7 +132,7 @@ export function HeroSection() {
         {/* Quick Capability Highlights */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl mt-6 text-left">
           <div className="p-3.5 rounded-lg border border-border/60 bg-card/40 backdrop-blur-sm">
-            <div className="flex items-center gap-2 font-mono text-xs text-cyan-500 dark:text-cyan-400 font-semibold mb-1">
+            <div className="flex items-center gap-2 font-mono text-xs text-cyan-accent font-semibold mb-1">
               <CheckCircle2 className="size-3.5" />
               <span>Backend Robusto</span>
             </div>
@@ -137,7 +142,7 @@ export function HeroSection() {
           </div>
 
           <div className="p-3.5 rounded-lg border border-border/60 bg-card/40 backdrop-blur-sm">
-            <div className="flex items-center gap-2 font-mono text-xs text-violet-400 font-semibold mb-1">
+            <div className="flex items-center gap-2 font-mono text-xs text-violet-accent font-semibold mb-1">
               <CheckCircle2 className="size-3.5" />
               <span>IA & Automação</span>
             </div>
@@ -147,7 +152,7 @@ export function HeroSection() {
           </div>
 
           <div className="p-3.5 rounded-lg border border-border/60 bg-card/40 backdrop-blur-sm">
-            <div className="flex items-center gap-2 font-mono text-xs text-cyan-500 dark:text-cyan-400 font-semibold mb-1">
+            <div className="flex items-center gap-2 font-mono text-xs text-cyan-accent font-semibold mb-1">
               <CheckCircle2 className="size-3.5" />
               <span>Frontend Moderno</span>
             </div>
@@ -162,7 +167,7 @@ export function HeroSection() {
           type="button"
           onClick={() => scrollTo("#projetos")}
           aria-label="Rolar para projetos"
-          className="mt-12 text-muted-foreground hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors p-2 animate-bounce cursor-pointer"
+          className="mt-12 text-muted-foreground hover:text-[var(--cyan-accent)] transition-colors p-2 animate-bounce cursor-pointer"
         >
           <ArrowDown className="size-5" />
         </button>
