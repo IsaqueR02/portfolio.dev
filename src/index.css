@@ -75,6 +75,7 @@
 
   --primary: #0284c7;
   --primary-foreground: #ffffff;
+  --scifi-foreground: #020617;
 
   --secondary: #f1f5f9;
   --secondary-foreground: #0f172a;
@@ -128,6 +129,7 @@
 
   --primary: #06b6d4;
   --primary-foreground: #070a12;
+  --scifi-foreground: #070a12;
 
   --secondary: #111827;
   --secondary-foreground: #f1f5f9;

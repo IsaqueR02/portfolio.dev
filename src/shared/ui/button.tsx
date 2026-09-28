@@ -20,7 +20,7 @@ const buttonVariants = cva(
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20",
         link: "text-primary underline-offset-4 hover:underline",
         scifi:
-          "bg-[var(--cyan-accent)] text-primary-foreground font-semibold hover:bg-[color-mix(in_srgb,var(--cyan-accent)_90%,transparent)] shadow-[0_0_14px_var(--brand-glow-shadow)] hover:shadow-[0_0_20px_var(--brand-glow-shadow)] border border-[color-mix(in_srgb,var(--cyan-accent)_60%,transparent)] transition-[color,background-color,border-color,box-shadow,transform]",
+          "bg-[var(--cyan-accent)] text-[var(--scifi-foreground)] font-semibold hover:bg-[color-mix(in_srgb,var(--cyan-accent)_90%,transparent)] shadow-[0_0_14px_var(--brand-glow-shadow)] hover:shadow-[0_0_20px_var(--brand-glow-shadow)] border border-[color-mix(in_srgb,var(--cyan-accent)_60%,transparent)] transition-[color,background-color,border-color,box-shadow,transform]",
         neon:
           "border-[color-mix(in_srgb,var(--cyan-accent)_40%,transparent)] bg-cyan-accent-subtle text-[var(--cyan-badge-foreground)] hover:bg-[color-mix(in_srgb,var(--cyan-accent)_20%,transparent)] hover:border-[color-mix(in_srgb,var(--cyan-accent)_70%,transparent)] transition-[color,background-color,border-color,box-shadow,transform]",
       },

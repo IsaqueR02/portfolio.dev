@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Menu, FileText, Code2, Terminal, Briefcase, User, Mail } from "lucide-react"
+import { Menu, FileText, Code2, Terminal, Briefcase, Mail } from "lucide-react"
 import { Button } from "@/shared/ui/button"
 import { ThemeToggle } from "@/features/theme/theme-toggle"
 import {

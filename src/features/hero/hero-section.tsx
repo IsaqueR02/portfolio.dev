@@ -110,13 +110,8 @@ export function HeroSection() {
             <div className="flex flex-wrap justify-center items-center gap-2">
               {techStack.map((tech) => (
                 <Tooltip key={tech.name}>
-                  <TooltipTrigger asChild>
-                    <Badge
-                      variant={tech.variant}
-                      tabIndex={0}
-                      role="button"
-                      className="cursor-help"
-                    >
+                  <TooltipTrigger className="cursor-help">
+                    <Badge variant={tech.variant}>
                       {tech.name}
                     </Badge>
                   </TooltipTrigger>

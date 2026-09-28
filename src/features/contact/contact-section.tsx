@@ -15,7 +15,7 @@ export function ContactSection() {
   return (
     <section id="contato" className="py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-border/60">
       <div className="flex flex-col items-center text-center mb-12">
-        <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-cyan-500 dark:text-cyan-400 uppercase mb-2">
+        <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[var(--cyan-badge-foreground)] uppercase mb-2">
           <MessageSquare className="size-3.5" />
           <span>Vamos Conversar</span>
         </div>
@@ -32,20 +32,20 @@ export function ContactSection() {
         <div className="lg:col-span-5 space-y-6">
           <div className="p-6 rounded-2xl border border-border/80 bg-card/60 backdrop-blur-sm space-y-6">
             <h3 className="text-lg font-bold text-foreground flex items-center gap-2">
-              <Sparkles className="size-4 text-cyan-500 dark:text-cyan-400" />
+              <Sparkles className="size-4 text-cyan-accent" />
               Canais Diretos
             </h3>
 
             <div className="space-y-4 text-sm">
               <div className="flex items-start gap-3">
-                <div className="size-9 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-500 dark:text-cyan-400 shrink-0">
+                <div className="size-9 rounded-lg bg-cyan-accent-subtle border border-cyan-accent/20 flex items-center justify-center text-cyan-accent shrink-0">
                   <Mail className="size-4" />
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground">E-mail Profissional</div>
                   <a
                     href="mailto:isaque.r.zulato@outlook.com"
-                    className="font-medium text-foreground hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
+                    className="font-medium text-foreground hover:text-[var(--cyan-accent)] transition-colors"
                   >
                     isaque.dev@outlook.com
                   </a>
@@ -53,7 +53,7 @@ export function ContactSection() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="size-9 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-500 dark:text-cyan-400 shrink-0">
+                <div className="size-9 rounded-lg bg-cyan-accent-subtle border border-cyan-accent/20 flex items-center justify-center text-cyan-accent shrink-0">
                   <MapPin className="size-4" />
                 </div>
                 <div>
@@ -63,7 +63,7 @@ export function ContactSection() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="size-9 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-500 dark:text-cyan-400 shrink-0">
+                <div className="size-9 rounded-lg bg-cyan-accent-subtle border border-cyan-accent/20 flex items-center justify-center text-cyan-accent shrink-0">
                   <Clock className="size-4" />
                 </div>
                 <div>

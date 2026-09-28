@@ -22,10 +22,10 @@ export function AdaptyCard() {
   return (
     <div
       id="adapty-card"
-      className="scifi-glow-card relative rounded-2xl border border-cyan-500/30 bg-card/80 backdrop-blur-md p-6 sm:p-8"
+      className="scifi-glow-card relative rounded-2xl border border-cyan-accent/30 bg-card/80 backdrop-blur-md p-6 sm:p-8"
     >
       {/* Top highlight bar */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-sky-400 to-blue-600" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-accent via-cyan-accent to-primary" />
 
       {/* Header & Badges */}
       <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
@@ -55,7 +55,7 @@ export function AdaptyCard() {
           >
             <div className="p-4 rounded-lg bg-muted/40 border border-border">
               <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
-                <Cpu className="size-4 text-cyan-400" />
+                <Cpu className="size-4 text-cyan-accent" />
                 Visão de Engenharia
               </h4>
               <p className="leading-relaxed">
@@ -66,7 +66,7 @@ export function AdaptyCard() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="p-4 rounded-lg bg-muted/40 border border-border">
                 <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
-                  <Brain className="size-4 text-cyan-400" />
+                  <Brain className="size-4 text-cyan-accent" />
                   Pipeline de IA
                 </h4>
                 <ul className="space-y-1.5 list-disc list-inside">
@@ -79,7 +79,7 @@ export function AdaptyCard() {
 
               <div className="p-4 rounded-lg bg-muted/40 border border-border">
                 <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
-                  <Database className="size-4 text-cyan-400" />
+                  <Database className="size-4 text-cyan-accent" />
                   Armazenamento & Performance
                 </h4>
                 <ul className="space-y-1.5 list-disc list-inside">
@@ -91,8 +91,8 @@ export function AdaptyCard() {
               </div>
             </div>
 
-            <div className="p-4 rounded-lg border border-cyan-500/20 bg-cyan-500/5">
-              <h4 className="font-semibold text-cyan-500 dark:text-cyan-300 mb-1 flex items-center gap-2">
+            <div className="p-4 rounded-lg border border-cyan-accent/20 bg-cyan-accent-subtle">
+              <h4 className="font-semibold text-[var(--cyan-badge-foreground)] mb-1 flex items-center gap-2">
                 <ShieldCheck className="size-4" />
                 Padrões e Conformidade
               </h4>
@@ -119,7 +119,7 @@ export function AdaptyCard() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <ExternalLink className="size-3.5 text-cyan-500 dark:text-cyan-400" />
+              <ExternalLink className="size-3.5 text-cyan-accent" />
               Demonstração
             </a>
           </Button>
@@ -145,7 +145,7 @@ export function AdaptyCard() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
             <div className="p-3 rounded-lg bg-muted/40 border border-border/60">
-              <div className="text-xs font-mono text-cyan-500 dark:text-cyan-400 font-semibold mb-1">
+              <div className="text-xs font-mono text-[var(--cyan-badge-foreground)] font-semibold mb-1">
                 Interface Fluida
               </div>
               <div className="text-xs text-muted-foreground">
@@ -153,7 +153,7 @@ export function AdaptyCard() {
               </div>
             </div>
             <div className="p-3 rounded-lg bg-muted/40 border border-border/60">
-              <div className="text-xs font-mono text-cyan-500 dark:text-cyan-400 font-semibold mb-1">
+              <div className="text-xs font-mono text-[var(--cyan-badge-foreground)] font-semibold mb-1">
                 IA Integrada
               </div>
               <div className="text-xs text-muted-foreground">
@@ -161,7 +161,7 @@ export function AdaptyCard() {
               </div>
             </div>
             <div className="p-3 rounded-lg bg-muted/40 border border-border/60">
-              <div className="text-xs font-mono text-cyan-500 dark:text-cyan-400 font-semibold mb-1">
+              <div className="text-xs font-mono text-[var(--cyan-badge-foreground)] font-semibold mb-1">
                 Performance .NET
               </div>
               <div className="text-xs text-muted-foreground">
@@ -174,7 +174,7 @@ export function AdaptyCard() {
         {/* TAB 2: ARQUITETURA & IA */}
         <TabsContent value="architecture" className="mt-4 space-y-4">
           <div className="p-4 rounded-lg bg-muted/30 border border-border/80">
-            <div className="flex items-center gap-2 font-mono text-xs text-cyan-500 dark:text-cyan-400 font-semibold mb-2">
+            <div className="flex items-center gap-2 font-mono text-xs text-[var(--cyan-badge-foreground)] font-semibold mb-2">
               <Cpu className="size-4" />
               <span>Camadas da Clean Architecture no .NET 9</span>
             </div>
@@ -204,7 +204,7 @@ export function AdaptyCard() {
         {/* TAB 3: RESULTADOS & MÉTRICAS */}
         <TabsContent value="results" className="mt-4 space-y-4">
           <div className="p-4 rounded-lg bg-muted/30 border border-border/80">
-            <div className="flex items-center gap-2 font-mono text-xs text-emerald-500 dark:text-emerald-400 font-semibold mb-2">
+            <div className="flex items-center gap-2 font-mono text-xs text-[var(--green-badge-foreground)] font-semibold mb-2">
               <TrendingUp className="size-4" />
               <span>Resultados de Testes, Benchmark & Conformidade</span>
             </div>
@@ -213,15 +213,15 @@ export function AdaptyCard() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
               <div className="p-2.5 rounded bg-background/60 border border-border">
-                <div className="font-mono font-bold text-cyan-400">&lt; 85ms</div>
+                <div className="font-mono font-bold text-[var(--cyan-badge-foreground)]">&lt; 85ms</div>
                 <div className="text-muted-foreground text-[11px]">Latência média da API</div>
               </div>
               <div className="p-2.5 rounded bg-background/60 border border-border">
-                <div className="font-mono font-bold text-emerald-400">100% AAA</div>
+                <div className="font-mono font-bold text-[var(--green-badge-foreground)]">100% AAA</div>
                 <div className="text-muted-foreground text-[11px]">Contraste e Legibilidade</div>
               </div>
               <div className="p-2.5 rounded bg-background/60 border border-border">
-                <div className="font-mono font-bold text-violet-400">0 Memory Leaks</div>
+                <div className="font-mono font-bold text-[var(--violet-badge-foreground)]">0 Memory Leaks</div>
                 <div className="text-muted-foreground text-[11px]">Testes de Carga K6</div>
               </div>
             </div>
