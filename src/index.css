@@ -47,8 +47,12 @@
 
   --color-cyan-glow: var(--cyan-glow);
   --color-cyan-accent: var(--cyan-accent);
+  --color-cyan-accent-subtle: var(--cyan-accent-subtle);
   --color-violet-accent: var(--violet-accent);
+  --color-violet-accent-subtle: var(--violet-accent-subtle);
   --color-green-status: var(--green-status);
+  --color-green-accent-subtle: var(--green-accent-subtle);
+  --shadow-glow-brand: 0 0 14px var(--brand-glow-shadow);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -98,9 +102,16 @@
   --sidebar-ring: #0284c7;
 
   --cyan-accent: #0ea5e9;
+  --cyan-accent-subtle: rgba(14, 165, 233, 0.1);
+  --cyan-badge-foreground: #075985;
   --cyan-glow: rgba(14, 165, 233, 0.15);
+  --brand-glow-shadow: rgba(14, 165, 233, 0.3);
   --violet-accent: #8b5cf6;
+  --violet-accent-subtle: rgba(139, 92, 246, 0.1);
+  --violet-badge-foreground: #6b21a8;
   --green-status: #10b981;
+  --green-accent-subtle: rgba(16, 185, 129, 0.1);
+  --green-badge-foreground: #065f46;
 
   --radius: 0.625rem;
 }
@@ -144,9 +155,34 @@
   --sidebar-ring: #06b6d4;
 
   --cyan-accent: #06b6d4;
+  --cyan-accent-subtle: rgba(6, 182, 212, 0.1);
+  --cyan-badge-foreground: #67e8f9;
   --cyan-glow: rgba(6, 182, 212, 0.2);
+  --brand-glow-shadow: rgba(6, 182, 212, 0.3);
   --violet-accent: #8b5cf6;
+  --violet-accent-subtle: rgba(139, 92, 246, 0.1);
+  --violet-badge-foreground: #c4b5fd;
   --green-status: #10b981;
+  --green-accent-subtle: rgba(16, 185, 129, 0.1);
+  --green-badge-foreground: #6ee7b7;
+}
+
+[data-slot="badge"][data-variant="cyan"] {
+  color: var(--cyan-badge-foreground);
+  background-color: var(--cyan-accent-subtle);
+  border-color: color-mix(in srgb, var(--cyan-accent) 30%, transparent);
+}
+
+[data-slot="badge"][data-variant="violet"] {
+  color: var(--violet-badge-foreground);
+  background-color: var(--violet-accent-subtle);
+  border-color: color-mix(in srgb, var(--violet-accent) 30%, transparent);
+}
+
+[data-slot="badge"][data-variant="green"] {
+  color: var(--green-badge-foreground);
+  background-color: var(--green-accent-subtle);
+  border-color: color-mix(in srgb, var(--green-status) 30%, transparent);
 }
 
 @layer base {
@@ -192,7 +228,7 @@
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, transparent 40%, rgba(6, 182, 212, 0.35) 100%);
+  background: linear-gradient(135deg, transparent 40%, color-mix(in srgb, var(--cyan-accent) 35%, transparent) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -204,7 +240,7 @@
 
 .scifi-glow-card:hover::before {
   opacity: 1;
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(6, 182, 212, 0.7) 100%);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--cyan-accent) 20%, transparent) 0%, color-mix(in srgb, var(--cyan-accent) 70%, transparent) 100%);
 }
 
 .scifi-hud-corner {
