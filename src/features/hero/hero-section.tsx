@@ -30,7 +30,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center text-center px-4 py-16 sm:py-24 overflow-hidden"
+      className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center text-center px-4 py-16 sm:py-24"
     >
       {/* Subtle background ambient radial gradients */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">

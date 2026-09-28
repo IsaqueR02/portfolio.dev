@@ -22,7 +22,7 @@ export function AdaptyCard() {
   return (
     <div
       id="adapty-card"
-      className="scifi-glow-card relative rounded-2xl border border-cyan-500/30 bg-card/80 backdrop-blur-md p-6 sm:p-8 overflow-hidden"
+      className="scifi-glow-card relative rounded-2xl border border-cyan-500/30 bg-card/80 backdrop-blur-md p-6 sm:p-8"
     >
       {/* Top highlight bar */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-sky-400 to-blue-600" />
