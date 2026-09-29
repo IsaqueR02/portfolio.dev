@@ -1,4 +1,4 @@
-# Frontend do Portfólio Web .NET/C# Full Stack
+# Planos para o Frontend do Portfólio Web .NET/C# Full Stack
 
 Frontend do portfólio pessoal focado em vagas de Desenvolvedor .NET/C#, com ênfase em projetos full stack, interface moderna, acessibilidade, documentação e integração com API ASP.NET Core.
 
