@@ -1,5 +1,7 @@
 import { ArrowDown, FileText, Play, Sparkles, CheckCircle2 } from "lucide-react"
 import { SiGithub } from "react-icons/si";
+import { motion, useReducedMotion } from "motion/react"
+import { staggerContainer, staggerItem } from "@/constants/animations"
 import { Button } from "@/shared/ui/button"
 import { Badge } from "@/shared/ui/badge"
 import {
@@ -22,6 +24,8 @@ const techStack = [
 ]
 
 export function HeroSection() {
+  const shouldReduceMotion = useReducedMotion() ?? false
+
   const scrollTo = (id: string) => {
     const el = document.querySelector(id)
     if (el) el.scrollIntoView({ behavior: "smooth" })
@@ -38,22 +42,29 @@ export function HeroSection() {
         <div className="h-[250px] w-[350px] rounded-full bg-blue-600/10 blur-[100px] dark:bg-blue-600/15" />
       </div>
 
-      <div className="max-w-4xl mx-auto flex flex-col items-center">
+      <motion.div
+        className="max-w-4xl mx-auto flex flex-col items-center"
+        variants={staggerContainer}
+        initial={shouldReduceMotion ? "reduced" : "hidden"}
+        animate={shouldReduceMotion ? "reduced" : "visible"}
+      >
         {/* Dynamic Status Badges */}
-        <HeroBadge />
+        <motion.div variants={staggerItem}>
+          <HeroBadge />
+        </motion.div>
 
         {/* Headline */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground max-w-3xl leading-[1.15] mb-5">
+        <motion.h1 variants={staggerItem} className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground max-w-3xl leading-[1.15] mb-5">
           Desenvolvedor <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--cyan-accent)] via-sky-400 to-primary forced-colors:text-foreground">.NET / C#</span> | Software Engineer
-        </h1>
+        </motion.h1>
 
         {/* Subheadline */}
-        <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed mb-8">
+        <motion.p variants={staggerItem} className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed mb-8">
           Engenharia de software voltada para alta performance, arquitetura escalável (Clean Arch & DDD), microsserviços e integração avançada com Inteligência Artificial. Full-stack do backend robusto com .NET ao ecossistema moderno com React.
-        </p>
+        </motion.p>
 
         {/* Quick Action CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-3 w-full max-w-xl mb-12">
+        <motion.div variants={staggerItem} className="flex flex-wrap items-center justify-center gap-3 w-full max-w-xl mb-12">
           <Button
             variant="scifi"
             size="lg"
@@ -99,10 +110,10 @@ export function HeroSection() {
             <FileText className="size-4" />
             <span>Currículo PDF</span>
           </Button>
-        </div>
+        </motion.div>
 
         {/* Quick Tech Highlights Badge Grid com Tooltips shadcn/ui */}
-        <div className="w-full max-w-3xl pt-8 border-t border-border/50">
+        <motion.div variants={staggerItem} className="w-full max-w-3xl pt-8 border-t border-border/50">
           <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-4">
             Especialidades & Core Stack
           </div>
@@ -122,10 +133,10 @@ export function HeroSection() {
               ))}
             </div>
           </TooltipProvider>
-        </div>
+        </motion.div>
 
         {/* Quick Capability Highlights */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl mt-6 text-left">
+        <motion.div variants={staggerItem} className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl mt-6 text-left">
           <div className="p-3.5 rounded-lg border border-border/60 bg-card/40 backdrop-blur-sm">
             <div className="flex items-center gap-2 font-mono text-xs text-cyan-accent font-semibold mb-1">
               <CheckCircle2 className="size-3.5" />
@@ -155,18 +166,21 @@ export function HeroSection() {
               Interfaces em React + TypeScript, componentes acessíveis e design responsivo refinado.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Scroll Indicator */}
-        <button
+        <motion.button
           type="button"
           onClick={() => scrollTo("#projetos")}
           aria-label="Rolar para projetos"
-          className="mt-12 text-muted-foreground hover:text-[var(--cyan-accent)] transition-colors p-2 animate-bounce cursor-pointer"
+          variants={staggerItem}
+          whileHover={shouldReduceMotion ? undefined : { y: -2 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+          className="mt-12 text-muted-foreground hover:text-[var(--cyan-accent)] transition-colors p-2 animate-bounce motion-reduce:animate-none cursor-pointer"
         >
           <ArrowDown className="size-5" />
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
     </section>
   )
 }

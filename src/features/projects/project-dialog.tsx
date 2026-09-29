@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Eye } from "lucide-react"
-import { Button } from "@/shared/ui/button"
+import { motion, useReducedMotion } from "motion/react"
+import { buttonVariants } from "@/shared/ui/button"
 import { Badge } from "@/shared/ui/badge"
 import {
   Dialog,
@@ -11,7 +12,7 @@ import {
   DialogTrigger,
 } from "@/shared/ui/dialog"
 
-interface ProjectDialogProps {
+export interface ProjectDialogProps {
   badge: string
   secondaryBadge?: string
   title: string
@@ -34,13 +35,22 @@ export function ProjectDialog({
   triggerSize = "sm",
   maxWidth = "max-w-3xl",
 }: ProjectDialogProps) {
+  const shouldReduceMotion = useReducedMotion() ?? false
+
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant={triggerVariant} size={triggerSize}>
+        <motion.button
+          type="button"
+          whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+          whileFocus={shouldReduceMotion ? undefined : { scale: 1.01 }}
+          transition={{ duration: 0.15 }}
+          className={buttonVariants({ variant: triggerVariant, size: triggerSize })}
+        >
           <Eye className="size-3.5" />
           {triggerText}
-        </Button>
+        </motion.button>
       </DialogTrigger>
       <DialogContent className={`${maxWidth} max-h-[85vh] overflow-y-auto`}>
         <DialogHeader>

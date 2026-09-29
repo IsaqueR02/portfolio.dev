@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { AnimatePresence, motion, useReducedMotion } from "motion/react"
 import {
   ExternalLink,
   Sparkles,
@@ -13,16 +14,20 @@ import {
 import { SiGithub } from "react-icons/si"
 import { Button } from "@/shared/ui/button"
 import { Badge } from "@/shared/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "@/shared/ui/tabs"
+import { fadeInUp } from "@/constants/animations"
 import { ProjectDialog } from "./project-dialog"
 
 export function AdaptyCard() {
-  const [activeAdaptyTab, setActiveAdaptyTab] = useState("overview")
+  const [activeAdaptyTab, setActiveAdaptyTab] = useState<"overview" | "architecture" | "results">("overview")
+  const shouldReduceMotion = useReducedMotion() ?? false
 
   return (
-    <div
+    <motion.div
       id="adapty-card"
       className="scifi-glow-card relative rounded-2xl border border-cyan-accent/30 bg-card/80 backdrop-blur-md p-6 sm:p-8"
+      whileHover={shouldReduceMotion ? undefined : { scale: 1.01 }}
+      transition={{ duration: 0.2 }}
     >
       {/* Top highlight bar */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-accent via-cyan-accent to-primary" />
@@ -129,17 +134,33 @@ export function AdaptyCard() {
       {/* Interactive Multi-View Tabs (Visão Geral, Arquitetura, Resultados) */}
       <Tabs
         value={activeAdaptyTab}
-        onValueChange={setActiveAdaptyTab}
+        onValueChange={(value: string) => {
+          if (value === "overview" || value === "architecture" || value === "results") {
+            setActiveAdaptyTab(value)
+          }
+        }}
         className="w-full"
       >
         <TabsList className="grid w-full grid-cols-3 max-w-md">
-          <TabsTrigger value="overview">Visão Geral</TabsTrigger>
-          <TabsTrigger value="architecture">Arquitetura / IA</TabsTrigger>
-          <TabsTrigger value="results">Resultados & Métricas</TabsTrigger>
+          <TabsTrigger value="overview" id="adapty-tab-overview" aria-controls="adapty-panel-overview">Visão Geral</TabsTrigger>
+          <TabsTrigger value="architecture" id="adapty-tab-architecture" aria-controls="adapty-panel-architecture">Arquitetura / IA</TabsTrigger>
+          <TabsTrigger value="results" id="adapty-tab-results" aria-controls="adapty-panel-results">Resultados & Métricas</TabsTrigger>
         </TabsList>
 
-        {/* TAB 1: VISÃO GERAL */}
-        <TabsContent value="overview" className="mt-4 space-y-4">
+        <AnimatePresence mode="wait" initial={false}>
+          {activeAdaptyTab === "overview" && (
+            <motion.section
+              key="overview"
+              id="adapty-panel-overview"
+              role="tabpanel"
+              aria-labelledby="adapty-tab-overview"
+              tabIndex={0}
+              variants={fadeInUp}
+              initial={shouldReduceMotion ? "reduced" : "hidden"}
+              animate={shouldReduceMotion ? "reduced" : "visible"}
+              exit={shouldReduceMotion ? "reduced" : "hidden"}
+              className="mt-4 space-y-4 outline-none"
+            >
           <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
             O <strong>Adapty</strong> é uma solução completa desenvolvida para transformar a acessibilidade digital em plataformas web. Utiliza modelos avançados de Inteligência Artificial para interpretar contextos visuais e cognitivos, adaptando tipografia, paletas de cores e simplificação de linguagem sob demanda para pessoas com deficiência visual, auditiva ou neurodivergências.
           </p>
@@ -169,10 +190,22 @@ export function AdaptyCard() {
               </div>
             </div>
           </div>
-        </TabsContent>
+            </motion.section>
+          )}
 
-        {/* TAB 2: ARQUITETURA & IA */}
-        <TabsContent value="architecture" className="mt-4 space-y-4">
+          {activeAdaptyTab === "architecture" && (
+            <motion.section
+              key="architecture"
+              id="adapty-panel-architecture"
+              role="tabpanel"
+              aria-labelledby="adapty-tab-architecture"
+              tabIndex={0}
+              variants={fadeInUp}
+              initial={shouldReduceMotion ? "reduced" : "hidden"}
+              animate={shouldReduceMotion ? "reduced" : "visible"}
+              exit={shouldReduceMotion ? "reduced" : "hidden"}
+              className="mt-4 space-y-4 outline-none"
+            >
           <div className="p-4 rounded-lg bg-muted/30 border border-border/80">
             <div className="flex items-center gap-2 font-mono text-xs text-[var(--cyan-badge-foreground)] font-semibold mb-2">
               <Cpu className="size-4" />
@@ -199,10 +232,22 @@ export function AdaptyCard() {
               </span>
             </div>
           </div>
-        </TabsContent>
+            </motion.section>
+          )}
 
-        {/* TAB 3: RESULTADOS & MÉTRICAS */}
-        <TabsContent value="results" className="mt-4 space-y-4">
+          {activeAdaptyTab === "results" && (
+            <motion.section
+              key="results"
+              id="adapty-panel-results"
+              role="tabpanel"
+              aria-labelledby="adapty-tab-results"
+              tabIndex={0}
+              variants={fadeInUp}
+              initial={shouldReduceMotion ? "reduced" : "hidden"}
+              animate={shouldReduceMotion ? "reduced" : "visible"}
+              exit={shouldReduceMotion ? "reduced" : "hidden"}
+              className="mt-4 space-y-4 outline-none"
+            >
           <div className="p-4 rounded-lg bg-muted/30 border border-border/80">
             <div className="flex items-center gap-2 font-mono text-xs text-[var(--green-badge-foreground)] font-semibold mb-2">
               <TrendingUp className="size-4" />
@@ -226,8 +271,10 @@ export function AdaptyCard() {
               </div>
             </div>
           </div>
-        </TabsContent>
+            </motion.section>
+          )}
+        </AnimatePresence>
       </Tabs>
-    </div>
+    </motion.div>
   )
 }

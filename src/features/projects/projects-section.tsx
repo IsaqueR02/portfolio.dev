@@ -4,6 +4,7 @@ import {
   ChevronRight,
   Zap,
 } from "lucide-react"
+import { motion, useReducedMotion } from "motion/react"
 import { SiGithub } from "react-icons/si"
 import { Button } from "@/shared/ui/button"
 import { Badge } from "@/shared/ui/badge"
@@ -11,6 +12,8 @@ import { AdaptyCard } from "./adapty-card"
 import { ProjectDialog } from "./project-dialog"
 
 export function ProjectsSection() {
+  const shouldReduceMotion = useReducedMotion() ?? false
+
   return (
     <section id="projetos" className="py-20 px-4 sm:px-6 max-w-6xl mx-auto">
       {/* Section Header */}
@@ -38,7 +41,11 @@ export function ProjectsSection() {
         {/* ========================================================================= */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* DESTAQUE 2: PROJETO SETORIAL */}
-          <div className="scifi-glow-card flex flex-col justify-between rounded-2xl border border-border/80 bg-card/80 backdrop-blur-md p-6 sm:p-7">
+          <motion.article
+            className="scifi-glow-card flex flex-col justify-between rounded-2xl border border-border/80 bg-card/80 backdrop-blur-md p-6 sm:p-7"
+            whileHover={shouldReduceMotion ? undefined : { scale: 1.01 }}
+            transition={{ duration: 0.2 }}
+          >
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <Badge variant="cyan">API REST</Badge>
@@ -113,10 +120,14 @@ export function ProjectsSection() {
                 </a>
               </Button>
             </div>
-          </div>
+          </motion.article>
 
           {/* DESTAQUE 3: ALGORITMOS / C++ */}
-          <div className="scifi-glow-card flex flex-col justify-between rounded-2xl border border-border/80 bg-card/80 backdrop-blur-md p-6 sm:p-7">
+          <motion.article
+            className="scifi-glow-card flex flex-col justify-between rounded-2xl border border-border/80 bg-card/80 backdrop-blur-md p-6 sm:p-7"
+            whileHover={shouldReduceMotion ? undefined : { scale: 1.01 }}
+            transition={{ duration: 0.2 }}
+          >
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <Badge variant="cyan">C++ 20</Badge>
@@ -181,7 +192,7 @@ export function ProjectsSection() {
                 </div>
               </ProjectDialog>
             </div>
-          </div>
+          </motion.article>
         </div>
       </div>
     </section>

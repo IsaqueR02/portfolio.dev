@@ -1,5 +1,7 @@
 import * as React from "react"
 import { Menu, FileText, Code2, Terminal, Briefcase, Mail } from "lucide-react"
+import { AnimatePresence, motion, useReducedMotion } from "motion/react"
+import { fadeIn } from "@/constants/animations"
 import { Button } from "@/shared/ui/button"
 import { ThemeToggle } from "@/features/theme/theme-toggle"
 import {
@@ -12,6 +14,7 @@ import {
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false)
+  const shouldReduceMotion = useReducedMotion() ?? false
 
   const navLinks = [
     { name: "Início", href: "#hero", icon: Terminal },
@@ -87,40 +90,53 @@ export function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] sm:w-[350px]">
-                <SheetHeader className="text-left pb-4 border-b border-border/60">
-                  <SheetTitle className="font-mono text-base flex items-center gap-2">
-                    <Code2 className="size-4 text-cyan-accent" />
-                    <span>Navegação</span>
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col gap-2 pt-6">
-                  {navLinks.map((link) => {
-                    const Icon = link.icon
-                    return (
-                      <button
-                        key={link.name}
-                        onClick={() => handleNavClick(link.href)}
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-muted hover:text-[var(--cyan-accent)] transition-colors text-left"
-                      >
-                        <Icon className="size-4 text-muted-foreground" />
-                        <span>{link.name}</span>
-                      </button>
-                    )
-                  })}
-                  <div className="pt-4 mt-2 border-t border-border/60">
-                    <Button
-                      variant="scifi"
-                      className="w-full justify-center"
-                      asChild
-                      onClick={() => setIsOpen(false)}
+                <AnimatePresence mode="wait">
+                  {isOpen && (
+                    <motion.div
+                      key="mobile-navigation"
+                      variants={fadeIn}
+                      initial={shouldReduceMotion ? "reduced" : "hidden"}
+                      animate={shouldReduceMotion ? "reduced" : "visible"}
+                      exit={shouldReduceMotion ? "reduced" : "hidden"}
+                      className="flex flex-col gap-4"
                     >
-                      <a href="#hero">
-                        <FileText className="size-4 mr-2" />
-                        Baixar Currículo
-                      </a>
-                    </Button>
-                  </div>
-                </div>
+                      <SheetHeader className="text-left pb-4 border-b border-border/60">
+                        <SheetTitle className="font-mono text-base flex items-center gap-2">
+                          <Code2 className="size-4 text-cyan-accent" />
+                          <span>Navegação</span>
+                        </SheetTitle>
+                      </SheetHeader>
+                      <div className="flex flex-col gap-2 pt-2">
+                        {navLinks.map((link) => {
+                          const Icon = link.icon
+                          return (
+                            <button
+                              key={link.name}
+                              onClick={() => handleNavClick(link.href)}
+                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-muted hover:text-[var(--cyan-accent)] transition-colors text-left"
+                            >
+                              <Icon className="size-4 text-muted-foreground" />
+                              <span>{link.name}</span>
+                            </button>
+                          )
+                        })}
+                        <div className="pt-4 mt-2 border-t border-border/60">
+                          <Button
+                            variant="scifi"
+                            className="w-full justify-center"
+                            asChild
+                            onClick={() => setIsOpen(false)}
+                          >
+                            <a href="#hero">
+                              <FileText className="size-4 mr-2" />
+                              Baixar Currículo
+                            </a>
+                          </Button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </SheetContent>
             </Sheet>
           </div>
