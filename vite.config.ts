@@ -21,4 +21,34 @@ export default defineConfig({
       "@store": path.resolve(import.meta.dirname, "./src/store"),
     },
   },
+  build: {
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            {
+              name: "react-vendor",
+              test: /node_modules[\\/](?:react|react-dom|scheduler)[\\/]/,
+              priority: 30,
+            },
+            {
+              name: "motion-vendor",
+              test: /node_modules[\\/](?:motion|motion-dom|motion-utils)[\\/]/,
+              priority: 20,
+            },
+            {
+              name: "radix-vendor",
+              test: /node_modules[\\/](?:radix-ui|@radix-ui[\\/][^\\/]+)[\\/]/,
+              priority: 10,
+            },
+            {
+              name: "icons-vendor",
+              test: /node_modules[\\/](?:lucide-react|react-icons)[\\/]/,
+              priority: 10,
+            },
+          ],
+        },
+      },
+    },
+  },
 })
