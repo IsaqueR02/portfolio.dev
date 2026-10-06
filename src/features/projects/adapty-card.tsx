@@ -17,21 +17,22 @@ import { Badge } from "@/shared/ui/badge"
 import { Tabs, TabsList, TabsTrigger } from "@/shared/ui/tabs"
 import { fadeInUp } from "@/constants/animations"
 import { ProjectDialog } from "./project-dialog"
+import { SpotlightCard } from "@/shared/ui/react-bits"
 
 export function AdaptyCard() {
   const [activeAdaptyTab, setActiveAdaptyTab] = useState<"overview" | "architecture" | "results">("overview")
   const shouldReduceMotion = useReducedMotion() ?? false
 
   return (
+    <SpotlightCard>
     <motion.div
       id="adapty-card"
-      className="scifi-glow-card relative rounded-2xl border border-cyan-accent/30 bg-card/80 backdrop-blur-md p-6 sm:p-8"
+      className="scifi-glow-card relative z-10 rounded-2xl border border-cyan-accent/30 bg-card/80 backdrop-blur-md p-6 sm:p-8"
       whileHover={shouldReduceMotion ? undefined : { scale: 1.01 }}
       transition={{ duration: 0.2 }}
     >
       {/* Top highlight bar */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-accent via-cyan-accent to-primary" />
-
       {/* Header & Badges */}
       <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
         <div>
@@ -276,5 +277,6 @@ export function AdaptyCard() {
         </AnimatePresence>
       </Tabs>
     </motion.div>
+    </SpotlightCard>
   )
 }

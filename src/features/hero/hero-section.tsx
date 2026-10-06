@@ -11,7 +11,7 @@ import {
   TooltipTrigger,
 } from "@/shared/ui/tooltip"
 import { HeroBadge } from "./hero-badge"
-import { DecryptedText, ParticlesBackground } from "@/shared/ui/react-bits";
+import { DecryptedText, ParticlesBackground, TiltedCard } from "@/shared/ui/react-bits";
 
 
 
@@ -142,6 +142,7 @@ export function HeroSection() {
         {/* Quick Capability Highlights */}
         <motion.div variants={staggerItem} className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl mt-6 text-left">
           <div className="p-3.5 rounded-lg border border-border/60 bg-card/40 backdrop-blur-sm">
+            <TiltedCard>
             <div className="flex items-center gap-2 font-mono text-xs text-cyan-accent font-semibold mb-1">
               <CheckCircle2 className="size-3.5" />
               <span>Backend Robusto</span>
@@ -149,9 +150,11 @@ export function HeroSection() {
             <p className="text-xs text-muted-foreground">
               APIs RESTful de baixa latência, CQRS, processamento assíncrono e segurança com JWT.
             </p>
+            </TiltedCard>
           </div>
 
           <div className="p-3.5 rounded-lg border border-border/60 bg-card/40 backdrop-blur-sm">
+          <TiltedCard>
             <div className="flex items-center gap-2 font-mono text-xs text-violet-accent font-semibold mb-1">
               <CheckCircle2 className="size-3.5" />
               <span>IA & Automação</span>
@@ -159,9 +162,11 @@ export function HeroSection() {
             <p className="text-xs text-muted-foreground">
               Pipelines de Inteligência Artificial aplicada, LLMs e adaptação dinâmica de interfaces.
             </p>
+            </TiltedCard>
           </div>
 
           <div className="p-3.5 rounded-lg border border-border/60 bg-card/40 backdrop-blur-sm">
+          <TiltedCard>
             <div className="flex items-center gap-2 font-mono text-xs text-cyan-accent font-semibold mb-1">
               <CheckCircle2 className="size-3.5" />
               <span>Frontend Moderno</span>
@@ -169,6 +174,7 @@ export function HeroSection() {
             <p className="text-xs text-muted-foreground">
               Interfaces em React + TypeScript, componentes acessíveis e design responsivo refinado.
             </p>
+          </TiltedCard>
           </div>
         </motion.div>
 
