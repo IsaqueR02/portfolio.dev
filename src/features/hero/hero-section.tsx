@@ -11,6 +11,9 @@ import {
   TooltipTrigger,
 } from "@/shared/ui/tooltip"
 import { HeroBadge } from "./hero-badge"
+import { DecryptedText, ParticlesBackground } from "@/shared/ui/react-bits";
+
+
 
 const techStack = [
   { name: "C# / .NET 9", variant: "cyan" as const, desc: "APIs robustas, Minimal APIs & alta performance" },
@@ -36,6 +39,7 @@ export function HeroSection() {
       id="hero"
       className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center text-center px-4 py-16 sm:py-24"
     >
+      <ParticlesBackground className="z-10 overflow-hidden rounded-xl" />
       {/* Subtle background ambient radial gradients */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
         <div className="h-[350px] w-[550px] rounded-full bg-[var(--cyan-glow)] blur-[120px]" />
@@ -55,7 +59,7 @@ export function HeroSection() {
 
         {/* Headline */}
         <motion.h1 variants={staggerItem} className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground max-w-3xl leading-[1.15] mb-5">
-          Desenvolvedor <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--cyan-accent)] via-sky-400 to-primary forced-colors:text-foreground">.NET / C#</span> | Software Engineer
+          <DecryptedText text="Desenvolvedor .NET / C#" speed={100} animateOn="view" className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[var(--cyan-accent)] via-sky-400 to-primary forced-colors:text-foreground" /> | Software Engineer
         </motion.h1>
 
         {/* Subheadline */}
