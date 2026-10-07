@@ -19,6 +19,8 @@ export function Navbar() {
   const navLinks = [
     { name: "Início", href: "#hero", icon: Terminal },
     { name: "Projetos", href: "#projetos", icon: Briefcase },
+    { name: "Sobre", href: "#sobre", icon: Code2 },
+    { name: "Skills", href: "#skills", icon: FileText },
     { name: "Contato", href: "#contato", icon: Mail },
   ]
 
