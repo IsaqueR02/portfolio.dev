@@ -60,7 +60,6 @@ export function TiltedCard({
   containerClassName,
   maxRotation = 8,
   perspective = 1000,
-  scaleOnHover = 1.02,
   showGlare = true,
   onMouseMove,
   onMouseEnter,
@@ -111,20 +110,6 @@ export function TiltedCard({
     },
     [shouldReduceMotion, mouseX, mouseY, onMouseMove]
   );
-
-  const handleMouseLeave = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      if (shouldReduceMotion) return;
-
-      // Reseta suavemente para a posição plana de descanso
-      mouseX.set(0);
-      mouseY.set(0);
-
-      onMouseLeave?.(e);
-    },
-    [shouldReduceMotion, mouseX, mouseY, onMouseLeave]
-  );
-
   /**
    * CONDICIONAL DE ACESSIBILIDADE (useReducedMotion):
    * Se o usuário configurou preferência por movimento reduzido no SO,
@@ -153,19 +138,19 @@ export function TiltedCard({
       <motion.div
         onMouseMove={handleMouseMove}
         onMouseEnter={onMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        whileHover={{ scale: scaleOnHover }}
-        transition={{ duration: 0.2 }}
+        onMouseLeave={onMouseLeave}
         style={{
           rotateX,
           rotateY,
           transformStyle: "preserve-3d",
         }}
+        transition={{ duration: 0.1 }}
+        whileHover={{ scale: 1.02 }}
+        
         className={cn(
           "relative overflow-hidden rounded-xl border border-border/50 bg-card/60 p-6 text-card-foreground shadow-sm backdrop-blur-md transition-colors hover:border-[var(--cyan-accent)]/40",
           className
         )}
-        {...props}
       >
         {/* Reflexo dinâmico de luz sci-fi (glare) */}
         {showGlare && (
