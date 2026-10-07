@@ -1,0 +1,6 @@
+export { HomePage, default } from "./home-page"
+export { HeroSection } from "../hero/hero-section"
+export { ProjectsSection } from "../projects/projects-section"
+export { AboutSection } from "../aboutMe/about-section"
+export { SkillsSection } from "../skills/skills-section"
+export { ContactSection } from "../contact/contact-section"
