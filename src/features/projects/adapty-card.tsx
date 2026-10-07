@@ -142,7 +142,7 @@ export function AdaptyCard() {
         }}
         className="w-full"
       >
-        <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 gap-1 h-auto sm:h-10">
+        <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 gap-1 h-auto sm:max-w-md">
           <TabsTrigger value="overview" id="adapty-tab-overview" aria-controls="adapty-panel-overview">Visão Geral</TabsTrigger>
           <TabsTrigger value="architecture" id="adapty-tab-architecture" aria-controls="adapty-panel-architecture">Arquitetura <br />/ IA</TabsTrigger>
           <TabsTrigger value="results" id="adapty-tab-results" aria-controls="adapty-panel-results">Resultados <br /> & Métricas</TabsTrigger>
