@@ -142,10 +142,10 @@ export function AdaptyCard() {
         }}
         className="w-full"
       >
-        <TabsList className="grid w-full flex w-full grid-cols-3 max-w-md">
+        <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 gap-1 h-auto sm:h-10">
           <TabsTrigger value="overview" id="adapty-tab-overview" aria-controls="adapty-panel-overview">Visão Geral</TabsTrigger>
-          <TabsTrigger value="architecture" id="adapty-tab-architecture" aria-controls="adapty-panel-architecture">Arquitetura / IA</TabsTrigger>
-          <TabsTrigger value="results" id="adapty-tab-results" aria-controls="adapty-panel-results">Resultados & Métricas</TabsTrigger>
+          <TabsTrigger value="architecture" id="adapty-tab-architecture" aria-controls="adapty-panel-architecture">Arquitetura <br />/ IA</TabsTrigger>
+          <TabsTrigger value="results" id="adapty-tab-results" aria-controls="adapty-panel-results">Resultados <br /> & Métricas</TabsTrigger>
         </TabsList>
 
         <AnimatePresence mode="wait" initial={false}>
@@ -160,7 +160,7 @@ export function AdaptyCard() {
               initial={shouldReduceMotion ? "reduced" : "hidden"}
               animate={shouldReduceMotion ? "reduced" : "visible"}
               exit={shouldReduceMotion ? "reduced" : "hidden"}
-              className="mt-4 space-y-4 outline-none"
+              className="mt-4 space-y-4 outline-none w-full opacity-100"
             >
           <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
             O <strong>Adapty</strong> é uma solução completa desenvolvida para transformar a acessibilidade digital em plataformas web. Utiliza modelos avançados de Inteligência Artificial para interpretar contextos visuais e cognitivos, adaptando tipografia, paletas de cores e simplificação de linguagem sob demanda para pessoas com deficiência visual, auditiva ou neurodivergências.
