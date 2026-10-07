@@ -24,10 +24,10 @@ export function AdaptyCard() {
   const shouldReduceMotion = useReducedMotion() ?? false
 
   return (
-    <SpotlightCard>
+    <SpotlightCard className="p-3 sm:p-6">
     <motion.div
       id="adapty-card"
-      className="scifi-glow-card relative z-10 rounded-2xl border border-cyan-accent/30 bg-card/80 backdrop-blur-md p-6 sm:p-8"
+      className="scifi-glow-card relative z-10 rounded-2xl border border-cyan-accent/30 bg-card/80 backdrop-blur-md p-4 sm:p-8"
       whileHover={shouldReduceMotion ? undefined : { scale: 1.01 }}
       transition={{ duration: 0.2 }}
     >
