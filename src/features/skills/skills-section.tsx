@@ -26,85 +26,92 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    title: "Backend & Linguagens",
-    subtitle: "Core de Engenharia",
+    title: "Back-End & Linguagens",
+    subtitle: "Core de Engenharia & APIs",
     description:
-      "Desenvolvimento de serviços escaláveis com foco em alto throughput, tipagem estrita, concorrência e processamento de baixa latência.",
+      "Desenvolvimento de microsserviços e APIs RESTful escaláveis em C# (.NET 8/9), além de experiência prática corporativa com Java (Spring Boot) e NestJS.",
     icon: Server,
     badgeVariant: "cyan",
     skills: [
-      { name: "C# / .NET 9", highlight: true },
+      { name: "C# / .NET 8 & 9", highlight: true },
       { name: "ASP.NET Core Web API", highlight: true },
-      { name: "C++ 20 (Algoritmos)", highlight: true },
-      { name: "Entity Framework Core" },
-      { name: "Dapper (High Performance)" },
-      { name: "MediatR (CQRS)" },
-      { name: "Minimal APIs" },
-      { name: "gRPC & Protobuf" },
-      { name: "LINQ & Async/Await" },
-      { name: "Middlewares Customizados" },
+      { name: "C++ (Algoritmos)", highlight: true },
+      { name: "Java (Spring Boot)", highlight: true },
+      { name: "NestJS (TypeScript)", highlight: true },
+      { name: "Entity Framework Core", highlight: true },
+      { name: "Programação Orientada a Objetos (POO)" },
+      { name: "Repository & DTOs" },
+      { name: "IHttpClientFactory & Resiliência" },
+      { name: "Python & PHP" },
     ],
   },
   {
-    title: "Arquitetura & Boas Práticas",
-    subtitle: "Design de Software",
+    title: "Front-End & Interfaces",
+    subtitle: "Aplicações Reativas & Desktop",
     description:
-      "Padrões estruturais para garantia de desacoplamento, testabilidade contínua e facilidade de manutenção em sistemas corporativos.",
-    icon: ShieldCheck,
-    badgeVariant: "violet",
-    skills: [
-      { name: "Clean Architecture", highlight: true },
-      { name: "Domain-Driven Design (DDD)", highlight: true },
-      { name: "Microsserviços" },
-      { name: "Princípios SOLID" },
-      { name: "Design Patterns GoF" },
-      { name: "Testes Unitários (xUnit)" },
-      { name: "Testes de Integração" },
-      { name: "Autenticação JWT & RBAC" },
-      { name: "Event-Driven Architecture" },
-      { name: "Concorrência & ACID" },
-    ],
-  },
-  {
-    title: "Frontend & Ecossistema Web",
-    subtitle: "Interfaces de Alta Fidelidade",
-    description:
-      "Aplicações web modernas desenhadas para manter 60 FPS estáveis, acessibilidade nativa e componentização limpa.",
+      "Construção de SPAs modernas em Angular 17+ Standalone e React, somadas a aplicações desktop em WPF (XAML) com foco em acessibilidade e neurodiversidade.",
     icon: Layout,
     badgeVariant: "cyan",
     skills: [
-      { name: "React 19", highlight: true },
-      { name: "TypeScript (Strict Mode)", highlight: true },
-      { name: "Vite / Next.js" },
-      { name: "Tailwind CSS v4" },
+      { name: "Angular 17+ Standalone", highlight: true },
+      { name: "React & TypeScript", highlight: true },
+      { name: "RxJS & Programação Reativa", highlight: true },
+      { name: "WPF / XAML (Desktop C#)", highlight: true },
+      { name: "Tailwind CSS", highlight: true },
       { name: "Acessibilidade (WCAG 2.1 AA)", highlight: true },
+      { name: "LiveCharts & Gráficos" },
+      { name: "Material Design (WPF)" },
       { name: "HTML5 Semântico & ARIA" },
-      { name: "Design Systems & Tokens" },
-      { name: "Microinterações de GPU" },
       { name: "Gestão de Estado & Hooks" },
-      { name: "Performance Web (Core Vitals)" },
+      { name: "Performance Web (Core Vitals)" },      
+      { name: "Figma (Prototipação)" },
     ],
   },
   {
-    title: "Banco de Dados, Cloud & DevOps",
-    subtitle: "Infraestrutura & Persistência",
+    title: "Bancos de Dados & Infraestrutura",
+    subtitle: "Persistência, Nuvem & DevOps",
     description:
-      "Modelagem relacional e chave-valor com estratégias de cache, conteinerização e automação de deploys contínuos.",
+      "Modelagem e integridade relacional em SQL Server, PostgreSQL e MySQL, associadas a pipelines de integração contínua (CI/CD) e suporte corporativo.",
     icon: Database,
     badgeVariant: "secondary",
     skills: [
-      { name: "PostgreSQL", highlight: true },
-      { name: "SQL Server" },
-      { name: "Redis (Cache Distribuído)", highlight: true },
-      { name: "Docker & Docker Compose", highlight: true },
-      { name: "Git & GitHub Actions (CI/CD)" },
-      { name: "Linux Server Environment" },
+      { name: "SQL Server", highlight: true },
+      { name: "PostgreSQL & Supabase", highlight: true },
+      { name: "MySQL (EF Core)", highlight: true },
+      { name: "Docker & Containers", highlight: true },
+      { name: "Azure DevOps (CI/CD)", highlight: true },
+      { name: "Git, GitHub & Bitbucket", highlight: true },
       { name: "Migrations Versionadas" },
+      { name: "Workflow Automation (n8n)", highlight: true },
       { name: "Modelagem Relacional" },
       { name: "Índices & Query Tuning" },
       { name: "Observabilidade & Logs" },
+      { name: "Linux Server" },
+      { name: "GLPI (Suporte N1/N2)" },
+      { name: "Excel Avançado & Dashboards" },
     ],
   },
+  {
+    title: "Metodologias, Qualidade & IA",
+    subtitle: "Práticas Ágeis & Inovação",
+    description:
+      "Adoção de Clean Code, TDD e arquiteturas desacopladas em squads Scrum/Kanban, somados ao uso diário de IA generativa para aceleração de software.",
+    icon: ShieldCheck,
+    badgeVariant: "violet",
+    skills: [
+      { name: "Clean Code & SOLID", highlight: true },
+      { name: "TDD & Testes Unitários", highlight: true },
+      { name: "Microsserviços & Resiliência (HTTP 503)", highlight: true },
+      { name: "Domain-Driven Design (DDD)", highlight: true },
+      { name: "IA Generativa (Gemini, Claude, GPT)", highlight: true },
+      { name: "Scrum & Kanban (Ágil)" },
+      { name: "Engenharia de Prompt COSTAR" },
+      { name: "Aspire Leaders (Harvard - Liderança)" },
+      { name: "Automação com n8n" },
+      { name: "Gestão de Incidentes & SLAs" },
+      { name: "Resolução Analítica de Problemas" },
+    ],
+  }
 ]
 
 export const SkillsSection = memo(function SkillsSection() {
@@ -119,13 +126,13 @@ export const SkillsSection = memo(function SkillsSection() {
       <div className="flex flex-col items-center text-center mb-14">
         <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[var(--cyan-badge-foreground)] uppercase mb-2">
           <Server className="size-3.5 text-cyan-accent" />
-          <span>Competências & Domínios</span>
+          <span>Competências & Domínios Técnicos</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-foreground">
-          Stack Tecnológica & Engenharia
+          Stack Tecnológica & Domínios Reais
         </h2>
         <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mt-2">
-          Organização por domínios técnicos reais de atuação. Sem métricas arbitrárias ou porcentagens abstratas: cada tecnologia reflete experiência prática em produção e arquitetura.
+          Habilidades comprovadas em projetos práticos, experiências corporativas e certificações. Sem barras arbitrárias ou porcentagens irreais: foco no que é aplicado em produção.
         </p>
       </div>
 
@@ -170,7 +177,7 @@ export const SkillsSection = memo(function SkillsSection() {
                 </p>
               </div>
 
-              {/* Grid de Badges Semânticos (Zero métricas arbitrárias / Zero barras) */}
+              {/* Grid de Badges Semânticos */}
               <div className="pt-4 border-t border-border/60">
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
