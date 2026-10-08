@@ -103,14 +103,14 @@ export function AdaptyCard() {
                 Padrões e Conformidade
               </h4>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Em conformidade com a <strong>WCAG 2.2 Nível AAA</strong>, o sistema gera dinamicamente folhas de estilo de alto contraste e descritores acessíveis para leitores de tela NVDA e JAWS.
+                Em conformidade com a <strong>WCAG 2.2 Nível AAA</strong>, o sistema disponibiliza estudo por flashcards cognitivos, folhas de estilo de alto contraste e descritores acessíveis.
               </p>
             </div>
           </ProjectDialog>
 
           <Button variant="outline" size="sm" asChild>
             <a
-              href="https://github.com/IsaqueR02/Adapty"
+              href="https://github.com/AdaptyA3-UNA"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -121,12 +121,12 @@ export function AdaptyCard() {
 
           <Button variant="secondary" size="sm" asChild>
             <a
-              href="https://adapty.dev"
+              href="https://github.com/AdaptyA3-UNA"
               target="_blank"
               rel="noopener noreferrer"
             >
               <ExternalLink className="size-3.5 text-cyan-accent" />
-              Demonstração
+              Repositório Oficial
             </a>
           </Button>
         </div>
