@@ -1,4 +1,4 @@
-import { ArrowDown, FileText, Play, Sparkles, CheckCircle2 } from "lucide-react"
+import { ArrowDown, Mail, Play, Sparkles, CheckCircle2 } from "lucide-react"
 import { SiGithub } from "react-icons/si";
 import { motion, useReducedMotion } from "motion/react"
 import { staggerContainer, staggerItem } from "@/constants/animations"
@@ -13,17 +13,15 @@ import {
 import { HeroBadge } from "./hero-badge"
 import { DecryptedText, ParticlesBackground, TiltedCard } from "@/shared/ui/react-bits";
 
-
-
 const techStack = [
-  { name: "C# / .NET 9", variant: "cyan" as const, desc: "APIs robustas, Minimal APIs & alta performance" },
-  { name: "ASP.NET Core", variant: "secondary" as const, desc: "Middlewares, DI nativa & autenticação JWT" },
-  { name: "Clean Architecture & DDD", variant: "violet" as const, desc: "Domínio isolado, desacoplamento & CQRS" },
-  { name: "IA & Agentes Inteligentes", variant: "cyan" as const, desc: "Integração com LLMs, OpenAI & automação" },
-  { name: "React 19 & TypeScript", variant: "secondary" as const, desc: "Componentização moderna, hooks & SSR/Vite" },
-  { name: "PostgreSQL & EF Core", variant: "secondary" as const, desc: "Modelagem relacional, migrations & otimizações" },
-  { name: "Docker & Microsserviços", variant: "secondary" as const, desc: "Conteinerização & pipelines distribuídos" },
-  { name: "C++ & Algoritmos", variant: "secondary" as const, desc: "Otimização de memória, grafos & throughput" },
+  { name: "C# / .NET 8 & 9", variant: "cyan" as const, desc: "Microsserviços, Minimal APIs, EF Core & alta performance" },
+  { name: "ASP.NET Core", variant: "secondary" as const, desc: "APIs RESTful, IHttpClientFactory & resiliência HTTP 503" },
+  { name: "Angular 17+ Standalone", variant: "cyan" as const, desc: "Injeção com inject(), RxJS reativo & Standalone Components" },
+  { name: "C++ (Algoritmos)", variant: "secondary" as const, desc: "Lógica avançada, análise comparativa DIO/Santander" },
+  { name: "React & TypeScript", variant: "secondary" as const, desc: "Interfaces reativas, CI&T Next Gen & Adapty_Flipcards" },
+  { name: "SQL Server & MySQL", variant: "secondary" as const, desc: "Modelagem relacional corporativa, KorpERP e Doctopus" },
+  { name: "Docker & Azure DevOps", variant: "violet" as const, desc: "Integração contínua (CI/CD), conteinerização e TDD" },
+  { name: "IA Generativa & Agentes", variant: "violet" as const, desc: "Prompt Engineering COSTAR, Gemini, Claude, GPT & automação" },
 ]
 
 export function HeroSection() {
@@ -59,12 +57,12 @@ export function HeroSection() {
 
         {/* Headline */}
         <motion.h1 variants={staggerItem} className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground max-w-3xl leading-[1.15] mb-5">
-          <DecryptedText text="Desenvolvedor .NET / C#" speed={100} animateOn="view" className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[var(--cyan-accent)] via-sky-400 to-primary forced-colors:text-foreground" /> | Software Engineer
+          <DecryptedText text="Desenvolvedor .NET & C#" speed={100} animateOn="view" className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[var(--cyan-accent)] via-sky-400 to-primary forced-colors:text-foreground" /> | Full Stack
         </motion.h1>
 
         {/* Subheadline */}
         <motion.p variants={staggerItem} className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed mb-8">
-          Engenharia de software voltada para alta performance, arquitetura escalável (Clean Arch & DDD), microsserviços e integração avançada com Inteligência Artificial. Full-stack do backend robusto com .NET ao ecossistema moderno com React.
+          Engenharia de software focada em microsserviços resilientes com .NET 8, Clean Architecture, SPAs em Angular 17+ e React, e desenvolvimento desktop com WPF. Experiência corporativa na CI&amp;T e projetos de alto impacto como KorpERP e Doctopus.
         </motion.p>
 
         {/* Quick Action CTAs */}
@@ -99,7 +97,7 @@ export function HeroSection() {
             variant="secondary"
             size="lg"
             className="w-full sm:w-auto"
-            onClick={() => scrollTo("#adapty-card")}
+            onClick={() => scrollTo("#projetos")}
           >
             <Play className="size-4 text-cyan-accent" />
             <span>Demonstração</span>
@@ -111,8 +109,8 @@ export function HeroSection() {
             className="w-full sm:w-auto"
             onClick={() => scrollTo("#contato")}
           >
-            <FileText className="size-4" />
-            <span>Currículo PDF</span>
+            <Mail className="size-4" />
+            <span>Entrar em Contato</span>
           </Button>
         </motion.div>
 
