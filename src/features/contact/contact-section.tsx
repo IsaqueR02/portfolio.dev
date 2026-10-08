@@ -1,10 +1,10 @@
 import {
-  Mail,
-  FileText,
   MapPin,
   Clock,
   Sparkles,
   MessageSquare,
+  HeartHandshake,
+  ShieldCheck,
 } from "lucide-react"
 import { SiGithub } from "react-icons/si"
 import { FaLinkedin } from "react-icons/fa"
@@ -23,7 +23,7 @@ export function ContactSection() {
           Entre em Contato
         </h2>
         <p className="text-sm sm:text-base text-muted-foreground max-w-xl mt-2">
-          Disponível para projetos desafiadores, engenharia de software .NET, desenvolvimento fullstack ou consultoria técnica.
+          Disponível para oportunidades em desenvolvimento .NET, C++, Fullstack ou suporte técnico. Envie sua mensagem pelo formulário ou conecte-se nas redes profissionais.
         </p>
       </div>
 
@@ -33,42 +33,54 @@ export function ContactSection() {
           <div className="p-6 rounded-2xl border border-border/80 bg-card/60 backdrop-blur-sm space-y-6">
             <h3 className="text-lg font-bold text-foreground flex items-center gap-2">
               <Sparkles className="size-4 text-cyan-accent" />
-              Canais Diretos
+              Canais Oficiais
             </h3>
 
             <div className="space-y-4 text-sm">
+              {/* Comunicação Segura */}
               <div className="flex items-start gap-3">
                 <div className="size-9 rounded-lg bg-cyan-accent-subtle border border-cyan-accent/20 flex items-center justify-center text-cyan-accent shrink-0">
-                  <Mail className="size-4" />
+                  <ShieldCheck className="size-4" />
                 </div>
                 <div>
-                  <div className="text-xs text-muted-foreground">E-mail Profissional</div>
-                  <a
-                    href="mailto:isaque.r.zulato@outlook.com"
-                    className="font-medium text-foreground hover:text-[var(--cyan-accent)] transition-colors"
-                  >
-                    isaque.dev@outlook.com
-                  </a>
+                  <div className="text-xs text-muted-foreground">Comunicação Segura</div>
+                  <div className="font-medium text-foreground">Mensagem Direta via Formulário</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">
+                    Envie os detalhes da vaga ou projeto pelo formulário ao lado
+                  </div>
                 </div>
               </div>
 
+              {/* Localização */}
               <div className="flex items-start gap-3">
                 <div className="size-9 rounded-lg bg-cyan-accent-subtle border border-cyan-accent/20 flex items-center justify-center text-cyan-accent shrink-0">
                   <MapPin className="size-4" />
                 </div>
                 <div>
-                  <div className="text-xs text-muted-foreground">Localização</div>
-                  <div className="font-medium text-foreground">Brasil • Disponibilidade Remota Global</div>
+                  <div className="text-xs text-muted-foreground">Localização &amp; Modelo</div>
+                  <div className="font-medium text-foreground">Contagem - MG, Brasil</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">
+                    Disponível para Remoto • Híbrido • Presencial
+                  </div>
                 </div>
               </div>
 
+              {/* Tempo de Resposta */}
               <div className="flex items-start gap-3">
                 <div className="size-9 rounded-lg bg-cyan-accent-subtle border border-cyan-accent/20 flex items-center justify-center text-cyan-accent shrink-0">
                   <Clock className="size-4" />
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground">Status de Resposta</div>
-                  <div className="font-medium text-foreground">Tempo médio de retorno &lt; 24h</div>
+                  <div className="font-medium text-foreground">Retorno em &lt; 24h</div>
+                </div>
+              </div>
+
+              {/* Inclusão / PCD */}
+              <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/30 border border-border/60">
+                <HeartHandshake className="size-4 text-cyan-500 shrink-0 mt-0.5" />
+                <div className="text-xs text-muted-foreground">
+                  <strong className="text-foreground">Vaga Afirmativa / PCD:</strong> CID-10 F84 / CID-11 6A02 (TEA &amp; TDAH). Aberto a oportunidades Júnior, Trainee, Suporte N2 e QA.
                 </div>
               </div>
             </div>
@@ -76,35 +88,30 @@ export function ContactSection() {
             {/* Direct Social Links */}
             <div className="pt-4 border-t border-border/60 flex flex-col gap-2.5">
               <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                Conexões
+                Perfis Profissionais
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button variant="outline" size="sm" asChild>
-                  <a
-                    href="https://www.github.com/IsaqueR02"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <SiGithub size={18} />
-                    GitHub
-                  </a>
-                </Button>
-
                 <Button variant="outline" size="sm" asChild>
                   <a
                     href="https://www.linkedin.com/in/isaquezulato-dev"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="flex items-center gap-1.5"
                   >
-                    <FaLinkedin size={18} />
-                    LinkedIn
+                    <FaLinkedin size={16} />
+                    <span>LinkedIn</span>
                   </a>
                 </Button>
 
-                <Button variant="scifi" size="sm" asChild>
-                  <a href="#hero">
-                    <FileText className="size-3.5" />
-                    Currículo PDF
+                <Button variant="outline" size="sm" asChild>
+                  <a
+                    href="https://github.com/IsaqueR02"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5"
+                  >
+                    <SiGithub size={16} />
+                    <span>GitHub</span>
                   </a>
                 </Button>
               </div>
