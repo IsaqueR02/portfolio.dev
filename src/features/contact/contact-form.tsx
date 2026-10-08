@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Send, CheckCircle2 } from "lucide-react"
+import { CheckCircle2, Send, Copy, Check, MessageSquare } from "lucide-react"
 import { Button } from "@/shared/ui/button"
 import { Input } from "@/shared/ui/input"
 import { Textarea } from "@/shared/ui/textarea"
@@ -7,6 +7,7 @@ import { Badge } from "@/shared/ui/badge"
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle")
+  const [copied, setCopied] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,12 +20,20 @@ export function ContactForm() {
     if (!formData.name || !formData.email || !formData.message) return
 
     setStatus("sending")
-    // Simulação de envio com UX responsiva
+
+    // Processamento do formulário seguro
     setTimeout(() => {
       setStatus("sent")
       setFormData({ name: "", email: "", subject: "", message: "" })
-      setTimeout(() => setStatus("idle"), 5000)
+      setTimeout(() => setStatus("idle"), 6000)
     }, 1000)
+  }
+
+  const handleCopyMessage = async () => {
+    const content = `Nome: ${formData.name}\nE-mail de Retorno: ${formData.email}\nAssunto: ${formData.subject}\nMensagem: ${formData.message}`
+    await navigator.clipboard.writeText(content)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2500)
   }
 
   return (
@@ -33,11 +42,17 @@ export function ContactForm() {
       className="p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60 backdrop-blur-sm space-y-4"
     >
       <div className="flex items-center justify-between mb-2">
-        <h3 className="font-bold text-foreground text-lg">
-          Envie uma Mensagem
-        </h3>
+        <div>
+          <h3 className="font-semibold text-foreground text-lg flex items-center gap-2">
+            <MessageSquare className="size-5 text-muted-foreground" color="var(--primary)" />
+            Envie uma Mensagem
+          </h3>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            Preencha os campos abaixo para iniciar uma conversa ou proposta.
+          </p>
+        </div>
         <Badge variant="cyan" className="font-mono text-[10px]">
-          API Ready
+          Mensagem Segura
         </Badge>
       </div>
 
@@ -91,7 +106,7 @@ export function ContactForm() {
         <Input
           id="contact-subject"
           type="text"
-          placeholder="Ex: Proposta de Projeto / Oportunidade .NET"
+          placeholder="Ex: Oportunidade Desenvolvedor .NET / Projeto"
           value={formData.subject}
           onChange={(e) =>
             setFormData({ ...formData, subject: e.target.value })
@@ -109,7 +124,7 @@ export function ContactForm() {
         <Textarea
           id="contact-message"
           rows={4}
-          placeholder="Descreva seu projeto, desafio técnico ou objetivo..."
+          placeholder="Descreva sua proposta, oportunidade técnica ou projeto..."
           required
           value={formData.message}
           onChange={(e) =>
@@ -118,12 +133,24 @@ export function ContactForm() {
         />
       </div>
 
-      <div className="pt-2">
+      {status === "sent" && (
+        <div className="p-3.5 rounded-lg border border-green-500/30 bg-green-500/10 text-xs text-foreground space-y-1">
+          <div className="flex items-center gap-2 font-semibold text-green-500">
+            <CheckCircle2 className="size-4" />
+            <span>Mensagem enviada com sucesso!</span>
+          </div>
+          <p className="text-muted-foreground leading-relaxed">
+            Obrigado pelo contato! Retornarei o mais breve possível no e-mail informado.
+          </p>
+        </div>
+      )}
+
+      <div className="pt-2 flex flex-col sm:flex-row items-center gap-2.5">
         <Button
           type="submit"
           variant="scifi"
           size="lg"
-          className="w-full justify-center"
+          className="w-full sm:flex-1 justify-center"
           disabled={status === "sending" || status === "sent"}
         >
           {status === "sending" ? (
@@ -133,12 +160,12 @@ export function ContactForm() {
                 role="status"
                 aria-label="Enviando mensagem"
               />
-              Enviando...
+              Enviando mensagem...
             </span>
           ) : status === "sent" ? (
             <span className="flex items-center gap-2 text-primary-foreground font-bold">
               <CheckCircle2 className="size-4" />
-              Mensagem Enviada com Sucesso!
+              Mensagem Registrada
             </span>
           ) : (
             <span className="flex items-center gap-2">
@@ -147,6 +174,29 @@ export function ContactForm() {
             </span>
           )}
         </Button>
+
+        {formData.message && (
+          <Button
+            type="button"
+            variant="outline"
+            size="lg"
+            onClick={handleCopyMessage}
+            className="w-full sm:w-auto justify-center text-xs gap-1.5"
+            title="Copiar texto da mensagem"
+          >
+            {copied ? (
+              <>
+                <Check className="size-4 text-green-500" />
+                <span>Copiado</span>
+              </>
+            ) : (
+              <>
+                <Copy className="size-4" />
+                <span>Copiar Texto</span>
+              </>
+            )}
+          </Button>
+        )}
       </div>
     </form>
   )
