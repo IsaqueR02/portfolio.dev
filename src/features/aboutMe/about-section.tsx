@@ -9,6 +9,9 @@ import {
   Workflow,
   Sparkles,
   Terminal,
+  Building2,
+  GraduationCap,
+  HeartHandshake,
 } from "lucide-react"
 import { fadeInUp, staggerContainer, staggerItem } from "@/constants/animations"
 import { Badge } from "@/shared/ui/badge"
@@ -25,38 +28,38 @@ interface PillarItem {
 const engineeringPillars: PillarItem[] = [
   {
     icon: Cpu,
-    title: "Backend Robusto & .NET 9",
-    subtitle: "APIs RESTful de Baixa Latência",
+    title: "Backend .NET & Microsserviços",
+    subtitle: "APIs RESTful Resilientes",
     description:
-      "Construção de serviços de alta disponibilidade com ASP.NET Core 9, Minimal APIs, processamento concorrente e pipelines desacoplados com MediatR e CQRS.",
-    tags: ["C#", ".NET 9", "ASP.NET Core", "CQRS", "REST APIs"],
+      "Construção de microsserviços e APIs com C# e .NET 8, comunicação via IHttpClientFactory com tolerância a falhas (ex: fallback HTTP 503), Entity Framework Core e SQL Server.",
+    tags: ["C#", ".NET 8", "ASP.NET Core", "Microsserviços", "Resiliência HTTP"],
     accentColor: "cyan",
   },
   {
     icon: Layers,
-    title: "Arquitetura & DDD",
-    subtitle: "Clean Architecture & Domínio Rico",
+    title: "Clean Architecture & Padrões",
+    subtitle: "Estruturação Desacoplada",
     description:
-      "Isolamento rigoroso de regras de negócio, modelagem de domínio centrada no problema (Domain-Driven Design), desacoplamento de persistência e manutenibilidade a longo prazo.",
-    tags: ["Clean Architecture", "DDD", "SOLID", "Entity Framework", "Dapper"],
+      "Implementação prática de Clean Architecture, princípios SOLID, padrões Repository e DTOs, garantindo código altamente testável, escalável e de fácil manutenção.",
+    tags: ["Clean Architecture", "SOLID", "Repository Pattern", "DTOs", "POO"],
     accentColor: "violet",
   },
   {
-    icon: Brain,
-    title: "IA Aplicada & Agentes",
-    subtitle: "Integração Inteligente e Escalável",
+    icon: Workflow,
+    title: "Frontend Reativo & Acessibilidade",
+    subtitle: "Angular Standalone & React",
     description:
-      "Conexão de LLMs e serviços cognitivos a pipelines corporativos, processamento assíncrono sem bloqueio de I/O e interfaces autoadaptativas orientadas a acessibilidade.",
-    tags: ["OpenAI API", "LLMs", "Agentes Cognitivos", "Pipelines Assíncronos"],
+      "Criação de SPAs modernas em Angular 17+ (com inject e RxJS) e React / TypeScript, priorizando UX intuitiva e acessibilidade para pessoas com neurodivergências (TEA/TDAH).",
+    tags: ["Angular 17+", "React", "TypeScript", "RxJS", "Acessibilidade"],
     accentColor: "cyan",
   },
   {
-    icon: Workflow,
-    title: "Fullstack Moderno & Qualidade",
-    subtitle: "Ecossistema React 19 & DevOps",
+    icon: Brain,
+    title: "Qualidade, DevOps & IA Generativa",
+    subtitle: "Produtividade de Engenharia",
     description:
-      "Frontends ultrarrápidos em React 19 e TypeScript, aliados a pipelines de CI/CD automatizados, conteinerização com Docker e observabilidade contínua.",
-    tags: ["React 19", "TypeScript", "Tailwind CSS", "Docker", "CI/CD"],
+      "Adoção de TDD e testes unitários, CI/CD no Azure DevOps e Bitbucket, e integração fluida de ferramentas de IA generativa (Gemini, Claude, GPT) para otimização de código.",
+    tags: ["Azure DevOps", "TDD", "Docker", "IA Generativa", "Scrum / Kanban"],
     accentColor: "violet",
   },
 ]
@@ -73,18 +76,18 @@ export const AboutSection = memo(function AboutSection() {
       <div className="flex flex-col items-center text-center mb-14">
         <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[var(--cyan-badge-foreground)] uppercase mb-2">
           <Terminal className="size-3.5 text-cyan-accent" />
-          <span>Perfil & Engenharia</span>
+          <span>Perfil & Trajetória Técnica</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-foreground">
-          Posicionamento Profissional & Arquitetura
+          Posicionamento Profissional & Experiência
         </h2>
         <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mt-2">
-          Soluções de ponta a ponta estruturadas para resolver problemas reais com excelência técnica, clareza de domínio e código limpo.
+          Desenvolvedor de Software focado no ecossistema .NET, C++ e desenvolvimento Fullstack moderno, combinando rigor técnico, empatia e experiência corporativa.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Bloco de Manifesto / Filosofia de Engenharia */}
+        {/* Bloco de Manifesto / Trajetória Real */}
         <motion.div
           variants={fadeInUp}
           initial={shouldReduceMotion ? "reduced" : "hidden"}
@@ -92,49 +95,63 @@ export const AboutSection = memo(function AboutSection() {
           viewport={{ once: true, amount: 0.2 }}
           className="lg:col-span-5 p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60 backdrop-blur-sm space-y-6"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <Badge variant="cyan" className="font-semibold">
               <Sparkles className="size-3 mr-1" />
-              Engenharia Orientada a Domínio
+              Desenvolvedor .NET & C++
+            </Badge>
+            <Badge variant="secondary" className="font-mono text-xs">
+              Full Stack
             </Badge>
           </div>
 
           <h3 className="text-xl sm:text-2xl font-bold text-foreground leading-snug">
-            Construindo sistemas preparados para escalar sem surpresas em produção.
+            Engenharia de software com foco em resiliência, boas práticas e impacto real.
           </h3>
 
           <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
             <p>
-              Minha atuação é centrada na engenharia de software voltada ao ecossistema <strong>.NET / C#</strong> e desenvolvimento <strong>Fullstack moderno</strong>. Acredito que arquitetura não é sobre abstrações excessivas, mas sobre desenhar sistemas previsíveis, testáveis e fáceis de evoluir.
+              Sou <strong>Isaque Roberto Zulato Henriques</strong>, graduando em <strong>Sistemas de Informação</strong> pelo Centro Universitário Una Contagem e com formação técnica em Informática pela <strong>FUNEC Riacho</strong>.
             </p>
             <p>
-              No backend, aplico rigorosamente <strong>Clean Architecture</strong> e <strong>Domain-Driven Design (DDD)</strong>, isolando a regra de negócio das camadas de infraestrutura e persistência. Minhas soluções utilizam <strong>ASP.NET Core 9</strong>, mensageria e bancos relacionais com índices refinados.
+              Minha experiência profissional inclui passagem pela <strong>CI&T Software</strong> (Programa Next Gen 2025), onde atuei no desenvolvimento de APIs RESTful com Spring Boot e microsserviços em NestJS / TypeScript para clientes de grande porte como o <strong>Hospital Albert Einstein</strong>, sob metodologias ágeis (Scrum/Kanban), TDD e esteiras de CI/CD no Azure DevOps.
             </p>
             <p>
-              Na camada de cliente, integro ecossistemas modernos com <strong>React 19</strong> e <strong>TypeScript</strong> em modo estrito, garantindo acessibilidade (WCAG 2.1 AA) e renderização a 60 FPS contínuos, sem poluição de efeitos desnecessários.
+              Anteriormente, atuei em suporte técnico N1/N2 na <strong>Prefeitura Municipal de Contagem</strong> atendendo mais de 200 usuários ativos (com índice de satisfação acima de 95% via GLPI), desenvolvendo sólida capacidade de diagnóstico de problemas e gestão de infraestrutura de rede.
             </p>
           </div>
 
-          <div className="pt-4 border-t border-border/60 space-y-3">
+          {/* Destaque Afirmativo PCD */}
+          <div className="p-3.5 rounded-xl border border-cyan-500/20 bg-cyan-500/5 space-y-1.5">
+            <div className="flex items-center gap-2 text-xs font-semibold text-cyan-500 dark:text-cyan-400">
+              <HeartHandshake className="size-4 shrink-0" />
+              <span>Vaga Afirmativa / PCD (TEA & TDAH)</span>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Profissional neurodivergente (CID-10 F84 / CID-11 6A02). Canalizo o hiperfoco em análise minuciosa de código, atenção a requisitos críticos e no design de sistemas verdadeiramente acessíveis e centrados nas pessoas.
+            </p>
+          </div>
+
+          <div className="pt-2 border-t border-border/60 space-y-3">
             <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-              Princípios Práticos de Trabalho
+              Trajetória & Fundamentos
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
               <div className="flex items-center gap-2 text-foreground font-medium">
-                <Shield className="size-3.5 text-cyan-accent" />
-                <span>Zero Métricas Arbitrárias</span>
+                <Building2 className="size-3.5 text-cyan-accent" />
+                <span>CI&T (Spring Boot & NestJS)</span>
+              </div>
+              <div className="flex items-center gap-2 text-foreground font-medium">
+                <GraduationCap className="size-3.5 text-cyan-accent" />
+                <span>Sistemas de Info (Una)</span>
               </div>
               <div className="flex items-center gap-2 text-foreground font-medium">
                 <Code className="size-3.5 text-cyan-accent" />
-                <span>Clean Code & SOLID</span>
+                <span>Clean Code & TDD</span>
               </div>
               <div className="flex items-center gap-2 text-foreground font-medium">
-                <Workflow className="size-3.5 text-cyan-accent" />
-                <span>Testabilidade Contínua</span>
-              </div>
-              <div className="flex items-center gap-2 text-foreground font-medium">
-                <Cpu className="size-3.5 text-cyan-accent" />
-                <span>Otimização para GPU & I/O</span>
+                <Shield className="size-3.5 text-cyan-accent" />
+                <span>Resiliência & Concorrência</span>
               </div>
             </div>
           </div>
