@@ -63,7 +63,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* Right side actions (Theme toggle + Resume CTA + Mobile hamburger) */}
+        {/* Right side actions (Theme toggle + Contact CTA + Mobile hamburger) */}
         <div className="flex items-center gap-2.5">
           <ThemeToggle />
 
@@ -73,9 +73,9 @@ export function Navbar() {
             className="hidden sm:inline-flex"
             asChild
           >
-            <a href="#hero">
-              <FileText className="size-3.5" />
-              <span>Currículo</span>
+            <a href="#contato">
+              <Mail className="size-3.5 mr-1.5" />
+              <span>Contato</span>
             </a>
           </Button>
 
@@ -129,9 +129,9 @@ export function Navbar() {
                             asChild
                             onClick={() => setIsOpen(false)}
                           >
-                            <a href="#hero">
-                              <FileText className="size-4 mr-2" />
-                              Baixar Currículo
+                            <a href="#contato">
+                              <Mail className="size-4 mr-2" />
+                              Falar Comigo
                             </a>
                           </Button>
                         </div>
@@ -147,3 +147,4 @@ export function Navbar() {
     </header>
   )
 }
+
