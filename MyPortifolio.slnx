@@ -1,6 +1,5 @@
 <Solution>
-  <Folder Name="/src/">
-    <Project Path="src/Backend/Backend.csproj" />
-    <Project Path="src/Frontend/Frontend.csproj" />
+  <Folder Name="Backend">
+    <Project Path="Backend.csproj" />
   </Folder>
 </Solution>
